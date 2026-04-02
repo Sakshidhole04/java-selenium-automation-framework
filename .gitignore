@@ -4,6 +4,9 @@ target/
 # Logs
 logs/
 
+# RPA output (generated at runtime)
+output/
+
 # VS Code Java LS workspace
 .classpath
 .project
