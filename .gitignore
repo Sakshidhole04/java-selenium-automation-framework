@@ -1,0 +1,15 @@
+# Maven build output
+target/
+
+# Logs
+logs/
+
+# VS Code Java LS workspace
+.classpath
+.project
+.settings/
+.factorypath
+
+# OS files
+.DS_Store
+Thumbs.db

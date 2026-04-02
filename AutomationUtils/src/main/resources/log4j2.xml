@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Properties>
+        <Property name="pattern">[%d{HH:mm:ss}] [%-5level] [%t] %logger{36} - %msg%n</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- Console output -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}"/>
+        </Console>
+
+        <!-- Date-based folder: logs/YYYY-MM-DD/automation.log -->
+        <RollingFile name="FileAppender"
+                     fileName="logs/${date:yyyy-MM-dd}/automation.log"
+                     filePattern="logs/${date:yyyy-MM-dd}/automation-%i.log">
+            <PatternLayout pattern="${pattern}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
